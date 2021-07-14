@@ -11,8 +11,8 @@ all: check coverage mutants
 		mutants \
 		tests
 
-module = dummy_transformations
-codecov_token = 6c56bccb-1758-4ed9-8161-97c845591c26
+module = build_inspector
+codecov_token = e0368ff3-afab-475b-986b-1bd77c03cf23
 
 define lint
 	pylint \
