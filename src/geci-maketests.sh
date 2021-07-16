@@ -7,18 +7,24 @@
 
 REPO=$1
 UUID=$2
+BRANCH=develop
+TAG=latest
 
 function notify_healthchecks {
   curl \
     --fail \
     --max-time 10 \
     --output /dev/null \
+    --retry 5 \
+    --show-error \
+    --silent \
     https://hc-ping.com/{$1}
 }
 
-git clone git@bitbucket.org:IslasGECI/${REPO}.git
+[ ! -d "${REPO}" ] && git clone git@bitbucket.org:IslasGECI/${REPO}.git
 cd ${REPO}
-docker pull islasgeci/${REPO}:latest
-docker run --volume ${PWD}:/workdir islasgeci/${REPO}:latest make tests \
+git fetch && git checkout ${BRANCH}
+docker pull islasgeci/${REPO}:${TAG}
+docker run --volume ${PWD}:/workdir islasgeci/${REPO}:${TAG} make tests \
     && notify_healthchecks ${UUID} \
     || notify_healthchecks ${UUID}/fail
