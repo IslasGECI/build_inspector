@@ -25,6 +25,6 @@ function notify_healthchecks {
 cd ${REPO}
 git fetch && git checkout ${BRANCH}
 docker pull islasgeci/${REPO}:${TAG}
-docker run --volume ${PWD}:/workdir islasgeci/${REPO}:${TAG} make tests \
+docker run --volume ${PWD}:/workdir islasgeci/${REPO}:${TAG} bash -c "make setup && make tests" \
     && notify_healthchecks ${UUID} \
     || notify_healthchecks ${UUID}/fail
