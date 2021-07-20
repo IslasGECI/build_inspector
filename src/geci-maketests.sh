@@ -23,7 +23,8 @@ function notify_healthchecks {
 
 [ ! -d "${REPO}" ] && git clone git@bitbucket.org:IslasGECI/${REPO}.git
 cd ${REPO}
-git fetch && git checkout ${BRANCH}
+git checkout ${BRANCH}
+git pull
 docker pull islasgeci/${REPO}:${TAG}
 docker run --volume ${PWD}:/workdir islasgeci/${REPO}:${TAG} bash -c "make setup && make tests" \
     && notify_healthchecks ${UUID} \
