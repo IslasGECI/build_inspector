@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 #
-DATAFILE=data/raw/repository_list.csv
+datafile=data/raw/repository_list.csv
 
-while IFS="," read -r repo uuid
+while IFS="," read -r repository uuid
 do
-  echo "Repo: ${repo}"
+  echo "Repository: ${repository}"
   echo "UUID: ${uuid}"
-  ./src/geci-maketests.sh ${repo} ${uuid}
-  ./src/geci-makeall.sh ${repo} ${uuid}
+  ./src/geci-maketests.sh ${repository} ${uuid}
+  ./src/geci-makeall.sh ${repository} ${uuid}
   echo ""
-done < <(tail --lines=+2 ${DATAFILE})
+done < <(tail --lines=+2 ${datafile})
