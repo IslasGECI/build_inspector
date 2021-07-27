@@ -10,16 +10,7 @@ UUID=$2
 BRANCH=develop
 TAG=latest
 
-function notify_healthchecks {
-  curl \
-    --fail \
-    --max-time 10 \
-    --output /dev/null \
-    --retry 5 \
-    --show-error \
-    --silent \
-    https://hc-ping.com/{$1}
-}
+source ./src/helper.sh
 
 [ ! -d "${REPO}" ] && git clone git@bitbucket.org:IslasGECI/${REPO}.git
 cd ${REPO}
