@@ -13,8 +13,8 @@ function notify_healthchecks {
 function pull_repository {
   repository=$1
   branch=$2
-  [ ! -d "${repository}" ] && git clone git@bitbucket.org:IslasGECI/${repository}.git
-  cd ${repository}
-  git checkout ${branch}
+  [ ! -d "${repository}" ] && git clone git@bitbucket.org:IslasGECI/"${repository}".git
+  cd "${repository}"
+  git checkout "${branch}"
   git pull
 }
