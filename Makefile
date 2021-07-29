@@ -13,7 +13,7 @@ all: coverage
 		tests
 
 check:
-	shellcheck --shell=bash src/helper.sh
+	shellcheck --shell=bash src/*
 
 clean:
 	rm --force --recursive isla-guadalupe
