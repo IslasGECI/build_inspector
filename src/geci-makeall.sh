@@ -11,10 +11,7 @@ branch=develop
 
 source ./src/helper.sh
 
-[ ! -d "${repository}" ] && git clone git@bitbucket.org:IslasGECI/${repository}.git
-cd ${repository}
-git checkout ${branch}
-git pull
+enter_to_repository ${repository} ${branch}
 all_reports=$(jq --raw-output ".[].report" analyses.json)
 error_count=0
 i=0
