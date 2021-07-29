@@ -5,7 +5,7 @@ Describe 'notify_healthchecks'
     echo "curl $@"
   End
 
-  It 'runs the mocked date command'
+  It 'notifies healtchecks with uuid and message'
     When call notify_healthchecks uuid mensaje
     The stdout should eq "curl --data-raw mensaje --fail --max-time 10 --output /dev/null --retry 5 --show-error --silent https://hc-ping.com/uuid"
   End
