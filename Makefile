@@ -29,4 +29,4 @@ mutants:
 setup:
 
 tests:
-	shellspec tests
+	shellspec --shell bash tests
