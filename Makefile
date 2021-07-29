@@ -16,6 +16,7 @@ check:
 	shellcheck --shell=bash src/helper.sh
 
 clean:
+	rm --force --recursive repositorio
 
 coverage: setup tests
 
