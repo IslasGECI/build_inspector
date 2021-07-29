@@ -13,6 +13,7 @@ all: coverage
 		tests
 
 check:
+	shellcheck --shell=bash src/helper.sh
 
 clean:
 

@@ -2,6 +2,7 @@ FROM python:3
 WORKDIR /workdir
 COPY . .
 RUN apt update && apt install --yes \
+    shellcheck \
     jq
 RUN pip install \
     black \
