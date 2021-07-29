@@ -13,8 +13,12 @@ all: coverage
 		tests
 
 check:
+	shellcheck --shell=bash src/helper.sh
 
 clean:
+	rm --force --recursive isla-guadalupe
+	rm --force --recursive repositorio
+	rm --force --recursive repository
 
 coverage: setup tests
 
@@ -28,5 +32,5 @@ mutants:
 
 setup:
 
-tests: install
-	shellspec tests
+tests:
+	shellspec --shell bash tests

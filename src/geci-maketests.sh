@@ -14,10 +14,7 @@ source ./src/helper.sh
 
 log="tests@${repository}:${image_tag}"
 notify_healthchecks ${uuid}/start ${log}
-[ ! -d "${repository}" ] && git clone git@bitbucket.org:IslasGECI/${repository}.git
-cd ${repository}
-git checkout ${branch}
-git pull
+pull_repository ${repository} ${branch}
 docker pull islasgeci/${repository}:${image_tag}
 docker run --volume ${PWD}:/workdir islasgeci/${repository}:${image_tag} bash -c "make setup && make tests" \
     && notify_healthchecks ${uuid} ${log} \
