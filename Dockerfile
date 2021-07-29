@@ -5,6 +5,7 @@ RUN pip install \
     black \
     codecov \
     flake8 \
+    jq \
     mutmut \
     mypy \
     pylint \
