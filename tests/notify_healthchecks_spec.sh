@@ -14,8 +14,8 @@ Describe 'notify_healthchecks'
     echo "git $@"
   End
 
-  It 'notifies enter_to_repository with repository and branch when there is not the repository'
-    When call enter_to_repository repository branch
+  It 'notifies pull_repository with repository and branch when there is not the repository'
+    When call pull_repository repository branch
     The lines of stdout should equal 3
     The stderr should be present
     The first line of output should equal "git clone git@bitbucket.org:IslasGECI/repository.git"

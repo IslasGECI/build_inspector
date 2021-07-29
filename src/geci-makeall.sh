@@ -11,7 +11,7 @@ branch=develop
 
 source ./src/helper.sh
 
-enter_to_repository ${repository} ${branch}
+pull_repository ${repository} ${branch}
 all_reports=$(jq --raw-output ".[].report" analyses.json)
 error_count=0
 i=0
