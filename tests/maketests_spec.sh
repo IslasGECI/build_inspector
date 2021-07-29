@@ -1,8 +1,6 @@
 Describe 'geci-maketests.sh'
 
-  Mock cd
-    echo "cd $@"
-  End
+  BeforeAll 'mkdir --parents isla-guadalupe'
 
   Mock curl
     echo "curl $@"
