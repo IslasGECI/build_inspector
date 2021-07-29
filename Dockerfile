@@ -1,11 +1,12 @@
 FROM python:3
 WORKDIR /workdir
 COPY . .
+RUN apt update && apt install --yes \
+    jq
 RUN pip install \
     black \
     codecov \
     flake8 \
-    jq \
     mutmut \
     mypy \
     pylint \
