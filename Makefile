@@ -28,5 +28,5 @@ mutants:
 
 setup:
 
-tests: install
+tests:
 	shellspec tests
