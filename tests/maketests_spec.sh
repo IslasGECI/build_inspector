@@ -1,5 +1,9 @@
 Describe 'geci-maketests.sh'
 
+  Mock cd
+    echo "cd $@"
+  End
+
   Mock curl
     echo "curl $@"
   End
