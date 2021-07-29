@@ -1,4 +1,4 @@
-Describe 'notify_healthchecks'
+Describe 'helper.sh'
   Include src/helper.sh
 
   Mock curl
@@ -14,10 +14,10 @@ Describe 'notify_healthchecks'
     echo "git $@"
   End
 
-  It 'notifies pull_repository with repository and branch when there is not the repository'
+  It 'pull_repository when repository already exists'
+    mkdir --parents repository # Setup
     When call pull_repository repository branch
-    The lines of stdout should equal 3
-    The stderr should be present
-    The first line of output should equal "git clone git@bitbucket.org:IslasGECI/repository.git"
+    The lines of stdout should equal 2
+    The first line of output should equal "git checkout branch"
   End
 End
