@@ -12,6 +12,7 @@ Describe 'helper.sh'
 
   Mock git
     echo "git $@"
+    mkdir --parents repository
   End
 
   It 'pull_repository when repository already exists'
@@ -19,5 +20,14 @@ Describe 'helper.sh'
     When call pull_repository repository branch
     The lines of stdout should equal 2
     The first line of output should equal "git checkout branch"
+    The line 2 of output should equal "git pull"
+  End
+
+  It 'pull_repository when repository does not exist'
+    rm --recursive repository # Setup
+    When call pull_repository repository branch
+    The lines of stdout should equal 3
+    The first line of output should equal "git clone git@bitbucket.org:IslasGECI/repository.git"
+    The line 3 of output should equal "git pull"
   End
 End
