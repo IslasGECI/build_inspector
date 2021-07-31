@@ -2,4 +2,4 @@
 SHELL=/bin/bash
 UUID=https://hc-ping.com/0cfab8be-3e7f-41a1-a30c-613d18f4becb
 # Cron jobs
-@daily * * * curl -fsS -m 10 --retry 5 -o /dev/null https://hc-ping.com/${UUID}/start && source /.vault/.secrets && /workdir/src/inspect_list.sh && curl -fsS -m 10 --retry 5 -o /dev/null https://hc-ping.com/${UUID}
+@daily curl -fsS -m 10 --retry 5 -o /dev/null https://hc-ping.com/${UUID}/start && source /.vault/.secrets && /workdir/src/inspect_list.sh && curl -fsS -m 10 --retry 5 -o /dev/null https://hc-ping.com/${UUID}
