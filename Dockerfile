@@ -3,7 +3,7 @@ WORKDIR /workdir
 COPY . .
 ENV DEBIAN_FRONTEND=noninteractive
 ENV HOME=/home/ciencia_datos
-ENV PATH="/root/.local/lib/shellspec:$PATH"
+ENV PATH="/home/ciencia_datos/.local/lib/shellspec:$PATH"
 ENV TZ=America/Los_Angeles
 ENV USER=ciencia_datos
 RUN useradd --create-home ${USER}
