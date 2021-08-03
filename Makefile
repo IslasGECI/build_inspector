@@ -20,7 +20,8 @@ clean:
 	rm --force --recursive repositorio
 	rm --force --recursive repository
 
-coverage: setup tests
+coverage: setup
+	shellspec --kcov --kcov-options "--include-path=src" --shell bash tests
 
 format:
 
