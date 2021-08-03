@@ -10,15 +10,6 @@ RUN apt update && apt install --yes \
     libiberty-dev \
     shellcheck \
     zlib1g-dev
-RUN pip install \
-    black \
-    codecov \
-    flake8 \
-    mutmut \
-    mypy \
-    pylint \
-    pytest \
-    pytest-cov
 # Install ShellSpec
 RUN curl --fail --location https://git.io/shellspec --show-error --silent | sh -s -- --yes
 ENV PATH="/root/.local/lib/shellspec:$PATH"
