@@ -16,6 +16,7 @@ check:
 	shellcheck --shell=bash src/*
 
 clean:
+	rm --force --recursive coverage
 	rm --force --recursive isla-guadalupe
 	rm --force --recursive repositorio
 	rm --force --recursive repository
