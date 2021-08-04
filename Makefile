@@ -13,14 +13,16 @@ all: coverage
 		tests
 
 check:
-	shellcheck --shell=bash src/helper.sh
+	shellcheck --shell=bash src/*
 
 clean:
+	rm --force --recursive coverage
 	rm --force --recursive isla-guadalupe
 	rm --force --recursive repositorio
 	rm --force --recursive repository
 
-coverage: setup tests
+coverage: setup
+	shellspec --kcov --kcov-options "--include-path=src" --shell bash tests
 
 format:
 
