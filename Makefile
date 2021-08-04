@@ -13,10 +13,16 @@ all: coverage
 		tests
 
 check:
+	shellcheck --shell=bash src/*
 
 clean:
+	rm --force --recursive coverage
+	rm --force --recursive isla-guadalupe
+	rm --force --recursive repositorio
+	rm --force --recursive repository
 
-coverage: setup tests
+coverage: setup
+	shellspec --kcov --kcov-options "--include-path=src" --shell bash tests
 
 format:
 
@@ -28,5 +34,5 @@ mutants:
 
 setup:
 
-tests: install
-	shellspec tests
+tests:
+	shellspec --shell bash tests
