@@ -13,7 +13,7 @@ all: coverage
 		tests
 
 check:
-	shellcheck --shell=bash src/*
+	shellcheck --shell=bash src/*.sh
 
 clean:
 	rm --force --recursive coverage
