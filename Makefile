@@ -1,4 +1,4 @@
-all: coverage
+all: check coverage mutants
 
 .PHONY: \
 		all \
