@@ -1,0 +1,5 @@
+# Variables de entorno
+SHELL=/bin/bash
+UUID=0cfab8be-3e7f-41a1-a30c-613d18f4becb
+# Cron jobs
+0 1 * * * . ${HOME}/src/notify_healthchecks.sh && notify_healthchecks "${UUID}/start" "Checking reproducibility" && source /.vault/.secrets && /workdir/src/inspect_list.sh && notify_healthchecks "${UUID}" "Reproducibility has been successfully checked" || notify_healthchecks "${UUID}/fail" "Reproducibility was not checked"

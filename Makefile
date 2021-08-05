@@ -1,4 +1,4 @@
-all: coverage
+all: check coverage mutants
 
 .PHONY: \
 		all \
@@ -13,7 +13,7 @@ all: coverage
 		tests
 
 check:
-	shellcheck --shell=bash src/*
+	shellcheck --shell=bash src/*.sh
 
 clean:
 	rm --force --recursive coverage
@@ -31,6 +31,7 @@ install:
 linter:
 
 mutants:
+	@echo "🏹😞 No mutation testing on Bash 👾🎉👾"
 
 setup:
 
