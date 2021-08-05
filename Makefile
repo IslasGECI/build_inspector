@@ -31,6 +31,7 @@ install:
 linter:
 
 mutants:
+	@echo "🏹😞 No mutation testing on Bash 👾🎉👾"
 
 setup:
 
