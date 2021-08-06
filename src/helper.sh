@@ -18,3 +18,16 @@ function pull_repository {
   git checkout "${branch}"
   git pull
 }
+
+
+function make_tests_all_by_repository {
+  repository=${1}
+  uuid=${2}
+  echo ""
+  echo "========================================"
+  echo "Repository: ${repository}"
+  echo "UUID: ${uuid}"
+  ./src/geci-maketests.sh "${repository}" "${uuid}"
+  ./src/geci-makeall.sh "${repository}" "${uuid}"
+  echo ""
+}
