@@ -8,7 +8,7 @@ do
   echo "========================================"
   echo "Repository: ${repository}"
   echo "UUID: ${uuid}"
-  ./src/geci-maketests.sh ${repository} ${uuid}
-  ./src/geci-makeall.sh ${repository} ${uuid}
+  ./src/geci-maketests.sh "${repository}" "${uuid}"
+  ./src/geci-makeall.sh "${repository}" "${uuid}"
   echo ""
 done < <(tail --lines=+2 ${datafile})
