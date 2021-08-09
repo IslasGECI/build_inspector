@@ -20,7 +20,7 @@ function pull_repository {
 }
 
 
-function make_tests_all_by_repository {
+function test_and_make_all_by_repository {
   repository=${1}
   uuid=${2}
   echo ""
