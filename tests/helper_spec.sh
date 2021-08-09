@@ -30,4 +30,12 @@ Describe 'helper.sh'
     The first line of output should equal "git clone git@bitbucket.org:IslasGECI/repository.git"
     The line 3 of output should equal "git pull"
   End
+
+  It 'test_and_make_all_by_repository'
+    When call test_and_make_all_by_repository repositorio iduu
+    The line 2 of output should equal "========================================"
+    The line 3 of output should equal "Repository: repositorio"
+    The line 4 of output should equal "UUID: iduu"
+    The stderr should be present
+  End
 End

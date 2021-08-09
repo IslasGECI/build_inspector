@@ -1,14 +1,10 @@
 #!/usr/bin/env bash
 #
+source ./src/helper.sh
+
 datafile=data/raw/repository_list.csv
 
 while IFS="," read -r repository uuid
 do
-  echo ""
-  echo "========================================"
-  echo "Repository: ${repository}"
-  echo "UUID: ${uuid}"
-  ./src/geci-maketests.sh ${repository} ${uuid}
-  ./src/geci-makeall.sh ${repository} ${uuid}
-  echo ""
+  test_and_make_all_by_repository "${repository}" "${uuid}"
 done < <(tail --lines=+2 ${datafile})
