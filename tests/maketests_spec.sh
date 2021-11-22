@@ -15,7 +15,7 @@ Describe 'geci-maketests.sh'
   End
 
   It 'Notifies healtchecks.io'
-  output_head="curl --data-raw"
+    output_head="curl --data-raw"
     output_tail="--fail --max-time 10 --output /dev/null --retry 5 --show-error --silent https://hc-ping.com/4fd77125-7f38-4996-b1e8-bbd337b338"
     When call src/geci-maketests.sh isla-guadalupe 4fd77125-7f38-4996-b1e8-bbd337b338
     The lines of stdout should equal 6
