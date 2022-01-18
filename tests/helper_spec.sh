@@ -1,5 +1,6 @@
 Describe 'helper.sh'
   Include src/helper.sh
+  Include src/notify_healthchecks.sh
 
   Mock curl
     echo "curl $@"

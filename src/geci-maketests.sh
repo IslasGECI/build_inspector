@@ -11,6 +11,7 @@ branch=develop
 image_tag=latest
 
 source ./src/helper.sh
+source ./src/notify_healthchecks.sh
 
 log="tests@${repository}:${image_tag}"
 notify_healthchecks "${uuid}/start" "${log}"

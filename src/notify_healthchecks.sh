@@ -7,6 +7,7 @@ function notify_healthchecks {
     --data-raw "$2" \
     --fail \
     --max-time 10 \
+    --output /dev/null \
     --retry 5 \
     --show-error \
     --silent \
