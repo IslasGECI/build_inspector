@@ -10,6 +10,7 @@ uuid=$2
 branch=develop
 
 source ./src/helper.sh
+source ./src/notify_healthchecks.sh
 
 pull_repository "${repository}" "${branch}"
 all_reports=$(jq --raw-output ".[].report" analyses.json)
